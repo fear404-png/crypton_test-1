@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 abstract class AppColors {
   static const LinearGradient loginBackgroundGradient = LinearGradient(
@@ -12,4 +12,7 @@ abstract class AppColors {
 
   static const BoxDecoration loginBackgroundGradientDecoration =
       BoxDecoration(gradient: loginBackgroundGradient);
+
+  static const Color mainScreenAccent = Colors.redAccent;
+  static const Color mainScreenBackground = Colors.white;
 }

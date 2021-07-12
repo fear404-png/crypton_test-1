@@ -37,6 +37,14 @@ class _FormWidget extends StatefulWidget {
 
 class _FormWidgetState extends State<_FormWidget> {
   bool _isObscure = true;
+
+  void _auth() {
+    //вот тут нужна логика
+
+    //переключение на следующий экран
+    Navigator.of(context).pushReplacementNamed("/main_screen");
+  }
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -72,7 +80,9 @@ class _FormWidgetState extends State<_FormWidget> {
               ),
               SizedBox(height: 45),
               TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    _auth();
+                  },
                   child: Container(
                     width: double.infinity,
                     height: 50,
@@ -97,6 +107,7 @@ class _FormWidgetState extends State<_FormWidget> {
                       style: TextStyle(color: Colors.blue),
                       recognizer: TapGestureRecognizer()
                         ..onTap = () {
+                          //Ссылка
                           launch('google.com');
                         },
                     ),
