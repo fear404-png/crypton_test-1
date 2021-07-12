@@ -1,5 +1,6 @@
 import 'package:crypton_test/pages/login_widget/login_widget.dart';
 import 'package:crypton_test/pages/main_screen_widget/main_screen_widget.dart';
+import 'package:crypton_test/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class App extends StatelessWidget {
@@ -9,7 +10,10 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "flutter app",
-      theme: ThemeData(),
+      theme: ThemeData(
+          bottomNavigationBarTheme: BottomNavigationBarThemeData(
+              selectedItemColor: AppColors.mainScreenSelectedItem,
+              unselectedItemColor: AppColors.mainScreenUnselectedItem)),
       routes: {
         "/login": (context) => LoginWidget(),
         "/main_screen": (context) => MainScreenWidget(),//второй экран
