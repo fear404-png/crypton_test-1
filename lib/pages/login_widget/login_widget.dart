@@ -52,6 +52,7 @@ class _FormWidgetState extends State<_FormWidget> {
                   decoration: InputDecoration(
                       labelText: "NickName",
                       labelStyle: TextStyle(fontSize: 12))),
+
               SizedBox(height: 20),
               TextField(
                 obscureText: _isObscure,
@@ -80,6 +81,7 @@ class _FormWidgetState extends State<_FormWidget> {
                         child: Text(
                       "Sing in",
                       style: TextStyle(color: Colors.white, fontSize: 16),
+
                     )),
                   )),
               SizedBox(height: 30),
