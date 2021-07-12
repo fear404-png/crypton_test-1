@@ -55,10 +55,12 @@ class _FormWidgetState extends State<_FormWidget> {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 35),
           child: Column(
+            
             children: [
               TextField(
                   decoration: InputDecoration(
                       labelText: "NickName",
+                      
                       labelStyle: TextStyle(fontSize: 12))),
               SizedBox(height: 20),
               TextField(
