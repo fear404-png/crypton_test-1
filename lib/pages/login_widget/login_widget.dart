@@ -38,7 +38,21 @@ class _FormWidget extends StatefulWidget {
 class _FormWidgetState extends State<_FormWidget> {
   bool _isObscure = true;
 
+  final _loginController = TextEditingController(text: "");
+  final _passwordController = TextEditingController(text: "");
   void _auth() {
+    final _login = _loginController.text;
+    final _password = _passwordController.text;
+    if (_login == "[a-zA-Z\_]" && _password == "admin") {
+//логика
+      Navigator.of(context).pushReplacementNamed("/main_screen");
+    } else {
+
+    }
+    setState(() {});
+
+
+
     //вот тут нужна логика
 
     //переключение на следующий экран
@@ -55,28 +69,30 @@ class _FormWidgetState extends State<_FormWidget> {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 35),
           child: Column(
-            children: <Widget>[
+
+            children:[
               TextField(
+                  controller: _loginController,
                   decoration: InputDecoration(
                       labelText: "NickName",
                       labelStyle: TextStyle(fontSize: 12))),
-              TextFormField(validator: (value) {
-                if (value!.isEmpty) return 'Nick name';
 
-                String p = "[a-zA-Z\_]";
-
-                RegExp regExp = new RegExp(p);
-
-                if (regExp.hasMatch(value)) return null;
-
-                return 'Только символы латинского алфавита или “_” (underscore)';
-              }),
-              new TextFormField(validator: (value) {
-                if (value!.isEmpty) return 'Пожалуйста введите свой пароль';
-
-                if ((value.length < 3 || value.length > 9))
-                  return 'пароль должен содержать от 3 до 9 символов';
-              }),
+              TextField(
+                obscureText: _isObscure,
+                decoration: InputDecoration(
+                    labelText: "Password",
+                    labelStyle: TextStyle(fontSize: 12),
+                    suffixIcon: IconButton(
+                        icon: Icon(_isObscure
+                            ? Icons.visibility
+                            : Icons.visibility_off),
+                        onPressed: () {
+                          print("tap");
+                          setState(() {
+                            _isObscure = !_isObscure;
+                          });
+                        })),
+              ),
               SizedBox(height: 45),
               TextButton(
                   onPressed: () {
@@ -88,9 +104,9 @@ class _FormWidgetState extends State<_FormWidget> {
                     decoration: AppColors.loginBackgroundGradientDecoration,
                     child: Center(
                         child: Text(
-                      "Sing in",
-                      style: TextStyle(color: Colors.white, fontSize: 16),
-                    )),
+                          "Sing in",
+                          style: TextStyle(color: Colors.white, fontSize: 16),
+                        )),
                   )),
               SizedBox(height: 30),
               RichText(
