@@ -12,7 +12,7 @@ class App extends StatelessWidget {
       theme: ThemeData(),
       routes: {
         "/login": (context) => LoginWidget(),
-        "/main_screen": (context) => MainScreenWidget(),
+        "/main_screen": (context) => MainScreenWidget(),//второй экран
       },
       initialRoute: "/login",
     );

@@ -55,29 +55,30 @@ class _FormWidgetState extends State<_FormWidget> {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 35),
           child: Column(
-            children: [
-              TextField(
-                  decoration: InputDecoration(
-                      labelText: "NickName",
-                      labelStyle: TextStyle(fontSize: 12))),
+            children: <Widget>[
+          TextField(
+          decoration: InputDecoration(
+              labelText: "NickName",
+              labelStyle: TextStyle(fontSize: 12))),
+              TextFormField(validator: (value) {
+                
+                if (value!.isEmpty) return 'Nick name';
 
-              SizedBox(height: 20),
-              TextField(
-                obscureText: _isObscure,
-                decoration: InputDecoration(
-                    labelText: "Password",
-                    labelStyle: TextStyle(fontSize: 12),
-                    suffixIcon: IconButton(
-                        icon: Icon(_isObscure
-                            ? Icons.visibility
-                            : Icons.visibility_off),
-                        onPressed: () {
-                          print("tap");
-                          setState(() {
-                            _isObscure = !_isObscure;
-                          });
-                        })),
-              ),
+                String p = "[a-zA-Z\_]";
+
+                RegExp regExp = new RegExp(p);
+
+                if (regExp.hasMatch(value)) return null;
+
+                return 'Только символы латинского алфавита или “_” (underscore)';
+              }),
+
+
+              new TextFormField(validator: (value) {
+                if (value!.isEmpty) return 'Пожалуйста введите свой пароль';
+
+                if ((value.length<3 || value.length>9)) return 'пароль должен содержать от 3 до 9 символов';
+              }),
               SizedBox(height: 45),
               TextButton(
                   onPressed: () {
@@ -91,7 +92,6 @@ class _FormWidgetState extends State<_FormWidget> {
                         child: Text(
                       "Sing in",
                       style: TextStyle(color: Colors.white, fontSize: 16),
-
                     )),
                   )),
               SizedBox(height: 30),
