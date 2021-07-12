@@ -16,7 +16,7 @@ class App extends StatelessWidget {
               unselectedItemColor: AppColors.mainScreenUnselectedItem)),
       routes: {
         "/login": (context) => LoginWidget(),
-        "/main_screen": (context) => MainScreenWidget(),
+        "/main_screen": (context) => MainScreenWidget(),//второй экран
       },
       initialRoute: "/login",
     );
