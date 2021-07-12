@@ -13,6 +13,8 @@ abstract class AppColors {
   static const BoxDecoration loginBackgroundGradientDecoration =
       BoxDecoration(gradient: loginBackgroundGradient);
 
-  static const Color mainScreenAccent = Colors.redAccent;
+  static const Color mainScreenSelectedItem = Colors.redAccent;
+  static const Color mainScreenUnselectedItem = Colors.grey;
   static const Color mainScreenBackground = Colors.white;
+  static const Color mainScreenDefault = Colors.black;
 }
