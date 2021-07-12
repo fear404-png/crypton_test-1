@@ -1,4 +1,5 @@
 import 'package:crypton_test/pages/login_widget/login_widget.dart';
+import 'package:crypton_test/pages/main_screen_widget/main_screen_widget.dart';
 import 'package:flutter/material.dart';
 
 class App extends StatelessWidget {
@@ -11,6 +12,7 @@ class App extends StatelessWidget {
       theme: ThemeData(),
       routes: {
         "/login": (context) => LoginWidget(),
+        "/main_screen": (context) => MainScreenWidget(),
       },
       initialRoute: "/login",
     );
